@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body id="back">
+      <div class="nameTag">
+          <h1 id="showPageHeader">PROF.DR MAHİT GÜNEŞ</h1>
+          <h6 style="text-align: end; position:fixed ; bottom: 0; color: #fff;">Copyright©2021 <br> by Mahit Güneş</h6>
+      </div>
+      <div class="menu">
+        <nav class="menu__nav">
+          <ul class="menu__list r-list">
+            <li class="menu__group">
+              <a href="homepage.html"  class="menu__link r-link">Anasayfa</a>
+            </li>
+            <li class="menu__group">
+              <a href="akedemikbilgiler.html"  class="menu__link r-link">Akademik Bilgiler</a>
+            </li>
+            <li class="menu__group">
+              <a href="yayinlar.html"  class="menu__link r-link">Yayınlar</a>
+            </li>
+            <li class="menu__group">
+              <a href="projepatent.html"  class="menu__link r-link">Proje&Patent</a>
+            </li>
+            <li class="menu__group">
+              <a href="ogrenci.html" class="menu__link r-link">Öğrenci</a>
+            </li>
+            <li class="menu__group">
+              <a href="basin.html" class="menu__link r-link">Basın</a>
+            </li>
+          </ul>
+        </nav>
+        <button class="menu__toggle r-button" type="button">
+          <span class="menu__hamburger m-hamburger">
+            <span class="m-hamburger__label">
+              <span class="menu__toggle-hint screen-reader">Open menu</span>
+            </span>
+          </span>
+        </button>
+      </div>
+
+
+    <script>
+      (function(){
+  'use strict';
+
+  class Menu {
+    constructor(settings) {
+      this.menuRootNode = settings.menuRootNode;
+      this.isOpened = false;
+    }
+    
+    changeMenuState(menuState) {
+      return this.isOpened = !menuState;
+    }
+    
+    changeToggleHint(toggleHint, toggleNode) {
+      toggleNode.textContent = toggleHint;
+      return toggleHint; 
+    }
+  }
+
+  const menuClassesNames = {
+    rootClass: 'menu',
+    activeClass: 'menu_activated',
+    toggleClass: 'menu__toggle',
+    toggleHintClass: 'menu__toggle-hint'
+  }
+  
+  const jsMenuNode = document.querySelector(`.${menuClassesNames.rootClass}`);
+  const demoMenu = new Menu ({
+    menuRootNode: jsMenuNode
+  });
+  
+  function getCurrentToggleHint(currentMenuState) {
+    return (currentMenuState !== true) ? 'Open menu' : 'Close menu';
+  }
+  
+  function toggleMenu(event) {
+    
+      let currentMenuState = demoMenu.changeMenuState(demoMenu.isOpened);
+      let toggleHint = getCurrentToggleHint(currentMenuState);
+      
+      demoMenu.changeToggleHint(
+        toggleHint, 
+        demoMenu.menuRootNode.querySelector(`.${menuClassesNames.toggleHintClass}`)
+      );
+      demoMenu.menuRootNode.classList.toggle(`${menuClassesNames.activeClass}`);
+      
+      return currentMenuState;  
+  }
+  
+  jsMenuNode.querySelector(`.${menuClassesNames.toggleClass}`).addEventListener('click', toggleMenu);
+})();
+      </script>
+
+      <style>
+        .r-button{
+  --uirButtonBackgroundColor: var(--rButtonBackgroundColor, transparent);
+  --uirButtonPadding: var(--rButtonPadding, var(--rButtonPaddingTop, 0) var(--rButtonPaddingRight, 0) var(--rButtonPaddingBottom, 0) var(--rButtonPaddingLeft, 0));
+  --uirButtonBorderWidth: var(--rButtonBorderWidth, 0);
+  --uirButtonBorderStyle: var(--rButtonBorderStyle, solid);
+  --uirButtonBorderColor: var(--rButtonBorderColor, currentColor);
+  --uirButtonFontFamily: var(--rButtonFontFamily, inherit);
+  --uirButtonFontSize: var(--rButtonFontSize,  inherit);
+  --uirButtonColor: var(--rButtonColor);
+
+  background-color: var(--uirButtonBackgroundColor);
+  padding: var(--uirButtonPadding);
+
+  border-width: var(--uirButtonBorderWidth);
+  border-style: var(--uirButtonBorderStyle);
+  border-color: var(--uirButtonBorderColor);
+
+  cursor: pointer;
+
+  font-family: var(--uirButtonFontFamily);
+  font-size: var(--uirButtonFontSize);
+}
+
+.r-button::-moz-focus-inner,
+.r-button[type="button"]::-moz-focus-inner,
+.r-button[type="reset"]::-moz-focus-inner,
+.r-button[type="submit"]::-moz-focus-inner {
+  
+  /* Remove the inner border and padding in Firefox. */
+  
+  border-style: none;
+  padding: 0;
+}
+
+/* The component will reset browser's styles of link */
+
+.r-link{
+    --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+    --uirLinkTextColor: var(--rLinkTextColor);
+    --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+
+    display: var(--uirLinkDisplay) !important;
+    color: var(--uirLinkTextColor) ;
+    text-decoration: var(--uirLinkTextDecoration) !important;
+}
+
+/* The component will reset browser's styles of list */
+
+.r-list{
+    --uirListPaddingLeft: var(--rListPaddingLeft, 0);
+    --uirListMarginTop: var(--rListMarginTop, 0);
+    --uirListMarginBottom: var(--rListMarginBottom, 0);
+    --uirListListStyle: var(--rListListStyle, none);
+
+    padding-left: var(--uirListPaddingLeft) !important;
+    margin-top: var(--uirListMarginTop) !important;
+    margin-bottom: var(--uirListMarginBottom) !important;
+    list-style: var(--uirListListStyle) !important;
+}
+
+/* Basic styles of the hamburger component */
+
+.m-hamburger{  
+  --uiHamburgerThickness: var(--hamburgerThickness, 4px);
+
+  display: var(--hamburgerDisplay, inline-flex);
+  width: var(--hamburgerWidth, 28px);
+  height: var(--hamburgerHeight, 20px);
+
+  position: relative;
+}
+
+.m-hamburger::before, 
+.m-hamburger::after, 
+.m-hamburger__label{
+  width: 100%;
+  height: var(--uiHamburgerThickness);
+  border-radius: var(--hamburgerBorderRadius, 5px);
+  background-color: var(--hamburgerBackgroundColor, currentColor);
+
+  position: absolute;
+  left: 0;
+}
+
+.m-hamburger::before, 
+.m-hamburger::after{
+  content:"";
+}
+
+.m-hamburger::before{
+  top: 0;
+}
+
+.m-hamburger::after{
+  bottom: 0;
+}
+
+.m-hamburger__label{
+  /* The calculation of middle hamburger button line position */
+  
+  top: calc(50% - calc(var(--uiHamburgerThickness) / 2));
+}
+
+/* helper to hide elements that are available only for screen readers. */
+
+.screen-reader{
+  width: var(--screenReaderWidth, 1px) !important;
+  height: var(--screenReaderHeight, 1px) !important;
+  padding: var(--screenReaderPadding, 0) !important;
+  border: var(--screenReaderBorder, none) !important;
+
+  position: var(--screenReaderPosition, absolute) !important;
+  clip: var(--screenReaderClip, rect(1px, 1px, 1px, 1px)) !important;
+  overflow: var(--screenReaderOverflow, hidden) !important;
+}
+
+
+.menu{
+  --uiMenuCircleSize: var(--menuCircleSize, 6.25rem);
+  --uiMenuCircleOffset: var(--menuCircleOffset, 1rem);
+  --uiMenuCircleHeight: calc(var(--uiMenuCircleSize) / 2);  
+  --uiMenuCircleBackgroundColor: var(--menuCircleBackgroundColor, currentColor);
+
+  --uiMenuHamburgerWidth: var(--menuHamburgerWidth, 1.75rem);
+  --uiMenuHamburgerHeight: var(--menuHamburgerHeight, 1.25rem);
+  
+  --rButtonPaddingTop: calc(var(--uiMenuCircleHeight) - var(--uiMenuHamburgerHeight) - var(--uiMenuCircleOffset));
+  
+  --hamburgerWidth: var(--uiMenuHamburgerWidth);
+  --hamburgerHeight: var(--uiMenuHamburgerHeight);
+  --hamburgerBackgroundColor: var(--menuHamburgerBackgroundColor, #fff);
+
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  opacity: 0.9;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: var(--menuZindex, 9998);
+}
+
+.menu__nav{
+  box-sizing: border-box;
+  width: 100%;
+  height: 0;
+
+  transition: opacity .2s ease-out;
+  opacity: 0.9;
+
+  display: flex;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.menu__list{
+  width: 100%;
+  max-height: 100%;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu__toggle{
+  box-sizing: border-box;
+  width: var(--uiMenuCircleSize);
+  height: var(--uiMenuCircleHeight);
+  flex: none;
+
+  position: relative;
+}
+
+.menu__toggle::before{
+
+  content: "";
+  width: 1em;
+  height: 1em;
+  font-size: var(--uiMenuCircleSize); /* 1 */
+
+  background-color: var(--uiMenuCircleBackgroundColor);
+  border-radius: 50%;
+
+  position: absolute;
+  bottom: -.5em; /* 2 */
+  left: calc(50% - .5em);
+  z-index: -1;
+
+  will-change: width, height;
+  transition: transform .25s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+              width .25s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+              height .25s cubic-bezier(0.04, -0.1, 0.29, 0.98);
+}
+
+
+.m-hamburger::before, 
+.m-hamburger::after, 
+.m-hamburger__label{
+  transition-timing-function: ease;
+  transition-duration: .15s;  
+}
+
+.m-hamburger::before, 
+.m-hamburger::after{
+  transition-property: transform;
+}
+
+.m-hamburger__label{
+  transition-property: transform, opacity;
+}
+
+
+.menu__toggle:focus{
+  outline: var(--menuHaburgerOutlineOWidth, 2px) solid var(--menuHaburgerOutlineColor);
+  outline-offset: var(--menuHaburgerOutlineOffset, 5px);
+}
+
+.menu_activated{
+  height: 100%;
+}
+
+.menu_activated .menu__nav{
+  flex-grow: 1;
+  opacity: 1;
+
+  will-change: opacity;
+  transition-duration: .2s;
+  transition-delay: .3s;
+}
+
+.menu_activated .menu__toggle::before{
+  width: 100vmax;
+  height: 100vmax;
+  transform: translate3d(-50vh, -50vh, 0) scale(5);
+  transition-duration: 1s;
+}
+
+.menu:not(.menu_activated) .menu__list{
+  display: none;
+}
+
+.menu_activated .m-hamburger::before{
+  top: 50%;
+  transform: translate3d(0, -50%, 0) rotate(45deg);
+}
+
+.menu_activated .m-hamburger::after{
+  transform: translate3d(0, -50%, 0) rotate(135deg);
+  top: 50%;
+}
+
+.menu_activated .m-hamburger__label{
+  transform: rotate(-45deg) translate3d(-.285em,-.3em, 0);
+  opacity: 0;
+}
+
+
+:root{
+  --colorWhite: #fff;
+  --colorMain: rgba(69, 87, 186, 0.568);
+  --menuCircleBackgroundColor: var(--colorMain);
+  --menuHamburgerBackgroundColor: var(--colorWhite);
+  --menuHaburgerOutlineColor: var(--colorMain);
+}
+
+.menu_activated{
+  --menuHaburgerOutlineColor: var(--colorWhite);
+}
+
+
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;  
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  font-size: 1rem;
+}
+
+.page{
+  max-width: 380px;
+  padding: 1rem;
+  margin: auto;  
+  text-align: center;
+}
+
+.page__name{
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.page__hint{
+  display: block;
+  line-height: 1.45;
+  margin-top: 1rem;
+}
+
+.menu__group{
+  --rLinkTextColor: var(--colorWhite);
+
+  padding: .5rem 2rem; 
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.linktr{
+  order: -1;
+  padding: 1.75rem;
+  text-align: center;
+}
+
+.linktr__goal{
+  background-color: rgb(209, 246, 255);
+  color: rgb(8, 49, 112);
+  box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
+  border-radius: 2rem;
+  padding: .5rem 1.25rem;
+}
+
+@media (min-width: 1024px){
+  
+  .linktr{
+    position: absolute; 
+    right: 1rem; 
+    bottom: 1rem;
+  }
+}
+      </style>
+</body>
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <link href= "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  </body>
+</html>
